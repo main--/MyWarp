@@ -1,6 +1,6 @@
 package me.taylorkelly.mywarp;
 
-import ru.tehkode.permissions.bukkit.PermissionsEx;
+//import ru.tehkode.permissions.bukkit.PermissionsEx;
 import com.nijikokun.bukkit.Permissions.Permissions;
 import org.anjocaido.groupmanager.GroupManager;
 
@@ -50,8 +50,8 @@ public class WarpPermissions {
 
     public static boolean permission(Player player, String permission, boolean defaultPerm) {
         switch (handler) {
-            case PERMISSIONSEX:
-                return ((PermissionsEx) permissionPlugin).getPermissionManager().has(player, permission);
+//            case PERMISSIONSEX:
+//                return ((PermissionsEx) permissionPlugin).getPermissionManager().has(player, permission);
             case PERMISSIONS3:
             	return ((Permissions) permissionPlugin).getHandler().has(player, permission);
             case PERMISSIONS:
