@@ -102,6 +102,13 @@ public class WarpList {
         warpList.put(warp.name, warp);
     }
 
+    private static void damage(Player player) {
+        // TODO make configurable
+        int damage = 2; // 1 heart
+        player.setHealth((((player.getHealth() - (damage - 1)) > 0) ? (player.getHealth() - (damage - 1)) : 0));
+        player.damage(1);
+    }
+    
     public void warpTo(String name, Player player) {
         MatchList matches = this.getMatches(name, player);
         name = matches.getMatch(name);
@@ -109,6 +116,7 @@ public class WarpList {
             Warp warp = warpList.get(name);
             if (warp.playerCanWarp(player)) {
                 warp.warp(player, server);
+                damage(player);
                 player.sendMessage(ChatColor.AQUA + warp.welcomeMessage);
             } else {
                 player.sendMessage(ChatColor.RED + "You do not have permission to warp to '" + name + "'");
